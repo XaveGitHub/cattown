@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-black text-white;
+  }
+}
+
+@layer components {
+  .pixel-button {
+    @apply relative px-4 py-2 bg-purple-600 hover:bg-purple-700
+           transition-colors duration-200 text-white font-medium;
+    image-rendering: pixelated;
+  }
+
+  .pixel-corners {
+    clip-path: polygon(
+      0 4px,
+      4px 4px,
+      4px 0,
+      calc(100% - 4px) 0,
+      calc(100% - 4px) 4px,
+      100% 4px,
+      100% calc(100% - 4px),
+      calc(100% - 4px) calc(100% - 4px),
+      calc(100% - 4px) 100%,
+      4px 100%,
+      4px calc(100% - 4px),
+      0 calc(100% - 4px)
+    );
+  }
+
+  .hero-button {
+    @apply relative px-6 py-2 text-white font-medium text-center;
+    image-rendering: pixelated;
+    position: relative;
+    border: none;
+    border-radius: 8px;
+    box-shadow:
+      0 3px 0 0 rgba(0, 0, 0, 0.4),
+      2px 0 0 0 rgba(0, 0, 0, 0.2),
+      inset 0 2px 0 0 rgba(255, 255, 255, 0.5),
+      inset 2px 0 0 0 rgba(255, 255, 255, 0.3);
+  }
+
+  .hero-button.bg-green-500 {
+    background: var(--button-color, #22c55e);
+  }
+
+  .hero-button.bg-purple-600 {
+    background: var(--button-color, #9333ea);
+  }
+
+  .hero-button:active {
+    transform: translateY(2px);
+    box-shadow:
+      0 1px 0 0 rgba(0, 0, 0, 0.4),
+      1px 0 0 0 rgba(0, 0, 0, 0.2),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+      inset 1px 0 0 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .hero-button:hover {
+    filter: brightness(1.05);
+  }
+
+  .nav-item {
+    @apply text-white hover:text-yellow-300 transition-colors px-3 py-2 text-sm font-medium;
+    position: relative;
+  }
+
+  .nav-item.active::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--button-color, #9333ea);
+    image-rendering: pixelated;
+  }
+
+  .cat-icon {
+    width: 16px;
+    height: 16px;
+    background-color: #fff;
+    position: relative;
+    image-rendering: pixelated;
+  }
+
+  .cat-icon::before,
+  .cat-icon::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: #000;
+  }
+
+  .cat-icon::before {
+    top: 0;
+    left: 4px;
+  }
+
+  .cat-icon::after {
+    top: 0;
+    right: 4px;
+  }
+}
+
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .scale-102 {
+    transform: scale(1.02);
+  }
+
+  @keyframes shimmer {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  .animate-shimmer {
+    animation: shimmer 2s infinite;
+  }
+}
