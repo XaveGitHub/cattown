@@ -3,22 +3,20 @@
 import { motion } from 'framer-motion';
 import Image from 'next/image';
 
-const TokenStats = ({ label, value }: { label: string; value: string }) => {
-  return (
-    <motion.div
-      className="bg-background-light/50 backdrop-blur-sm p-8 pixel-corners relative group
-                 border-2 border-primary/30 hover:border-primary/50 transition-all duration-300"
-      whileHover={{ scale: 1.02 }}
-    >
-      <div className="relative z-10">
-        <h4 className="text-3xl font-bold text-primary mb-4 group-hover:scale-105 transition-transform">
-          {value}
-        </h4>
-        <p className="text-gray-300">{label}</p>
-      </div>
-    </motion.div>
-  );
-};
+const TokenStats = ({ label, value }: { label: string; value: string }) => (
+  <motion.div
+    className="bg-background-light/50 backdrop-blur-sm p-8 pixel-corners relative group
+               border-2 border-primary/30 hover:border-primary/50 transition-all duration-300"
+    whileHover={{ scale: 1.02 }}
+  >
+    <div className="relative z-10">
+      <h4 className="text-3xl font-bold text-primary mb-4 group-hover:scale-105 transition-transform">
+        {value}
+      </h4>
+      <p className="text-gray-300">{label}</p>
+    </div>
+  </motion.div>
+);
 
 const KibbleSection = () => {
   return (
