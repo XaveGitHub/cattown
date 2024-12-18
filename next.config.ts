@@ -10,9 +10,6 @@ const nextConfig: NextConfig = {
       },
     ],
   },
-  analytics: {
-    enabled: true,
-  },
 };
 
 export default nextConfig;
