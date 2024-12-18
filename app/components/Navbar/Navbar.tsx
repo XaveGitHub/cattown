@@ -5,8 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 const Navbar = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const navItems = [
     { label: 'Play Now', href: 'https://cat.town/signin' },
     { label: 'Features', href: '#features' },
