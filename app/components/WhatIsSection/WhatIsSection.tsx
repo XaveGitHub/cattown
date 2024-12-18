@@ -56,9 +56,14 @@ const WhatIsSection = () => {
               </div>
             </div>
 
-            <button className="hero-button bg-green-500 mt-8">
+            <a
+              href="https://catips.framer.website/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hero-button bg-green-500 mt-8 inline-block"
+            >
               Get Started
-            </button>
+            </a>
           </motion.div>
 
           {/* Right side - Image */}
