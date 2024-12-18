@@ -47,7 +47,7 @@ const Navbar = () => {
             href="https://cat.town/signin"
             className="hero-button bg-green-500 text-sm"
           >
-            PLAY FOR FREE
+            Play Now
           </Link>
         </div>
       </nav>
