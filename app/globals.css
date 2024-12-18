@@ -108,6 +108,145 @@
     top: 0;
     right: 4px;
   }
+
+  /* Pixel Art Navigation Styles */
+  .nav-item-pixel {
+    @apply relative px-4 py-2 text-white transition-all duration-200;
+  }
+
+  .nav-item-pixel:hover {
+    @apply text-yellow-300;
+  }
+
+  .pixel-sprite {
+    image-rendering: pixelated;
+    transition: transform 0.2s;
+  }
+
+  .nav-item-pixel:hover .pixel-sprite {
+    transform: scale(1.2);
+  }
+
+  .pixel-border-hover {
+    @apply absolute bottom-0 left-0 w-full h-0.5 bg-yellow-300 transform scale-x-0 transition-transform duration-200;
+  }
+
+  .nav-item-pixel:hover .pixel-border-hover {
+    @apply scale-x-100;
+  }
+
+  /* Mobile Menu Styles */
+  .hamburger-line {
+    @apply absolute w-full h-0.5 bg-white transition-all duration-200;
+  }
+
+  .hamburger-line:nth-child(1) {
+    top: 25%;
+  }
+
+  .hamburger-line:nth-child(2) {
+    top: 50%;
+  }
+
+  .hamburger-line:nth-child(3) {
+    top: 75%;
+  }
+
+  .hamburger-line.open:nth-child(1) {
+    @apply transform rotate-45 top-1/2;
+  }
+
+  .hamburger-line.open:nth-child(2) {
+    @apply opacity-0;
+  }
+
+  .hamburger-line.open:nth-child(3) {
+    @apply transform -rotate-45 top-1/2;
+  }
+
+  .pixel-menu {
+    @apply bg-black/90 backdrop-blur-sm mt-2 rounded-lg overflow-hidden;
+    border: 2px solid theme('colors.yellow.300');
+    clip-path: polygon(
+      0 4px,
+      4px 4px,
+      4px 0,
+      calc(100% - 4px) 0,
+      calc(100% - 4px) 4px,
+      100% 4px,
+      100% calc(100% - 4px),
+      calc(100% - 4px) calc(100% - 4px),
+      calc(100% - 4px) 100%,
+      4px 100%,
+      4px calc(100% - 4px),
+      0 calc(100% - 4px)
+    );
+  }
+
+  .mobile-nav-item {
+    @apply flex items-center space-x-3 px-4 py-3 text-white hover:bg-yellow-300/20 transition-colors;
+  }
+
+  .nav-pixel-background {
+    @apply absolute inset-0 w-full;
+    height: 96px; /* Adjust based on your navbar height */
+    background-color: #000000;
+    image-rendering: pixelated;
+  }
+
+  .nav-pixel-pattern {
+    @apply absolute inset-0;
+    background-image: url('/nav-pattern.png');
+    background-repeat: repeat-x;
+    background-size: 32px 96px; /* Adjust based on your pattern size */
+    opacity: 0.8;
+  }
+
+  .nav-pixel-border-bottom {
+    @apply absolute bottom-0 left-0 right-0;
+    height: 4px;
+    background-image: url('/nav-border.png');
+    background-repeat: repeat-x;
+    background-size: 8px 4px;
+  }
+
+  .game-nav-floating {
+    @apply max-w-7xl relative rounded-xl overflow-hidden;
+    background: linear-gradient(to bottom, #1F1F2E, #2D2D3D);
+    box-shadow: 
+      0 4px 6px -1px rgba(0, 0, 0, 0.3),
+      0 2px 4px -1px rgba(0, 0, 0, 0.2),
+      0 -2px 0 0 rgba(255, 255, 255, 0.05) inset;
+  }
+
+  .game-nav-floating::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(to right, 
+      rgba(147, 51, 234, 0) 0%,
+      rgba(147, 51, 234, 0.3) 50%,
+      rgba(147, 51, 234, 0) 100%
+    );
+  }
+
+  .game-nav-item {
+    @apply px-4 py-2 text-white font-semibold text-sm transition-colors duration-200
+           hover:text-yellow-200;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.2);
+  }
+
+  .game-play-button {
+    @apply px-6 py-2 bg-[#5C3C2E] text-white font-bold text-sm rounded-md
+           transition-all duration-200 hover:bg-[#4A2E20] hover:transform hover:scale-105;
+    text-shadow: 1px 1px 0 rgba(0,0,0,0.3);
+    box-shadow: 
+      0 2px 4px rgba(0,0,0,0.2),
+      inset 0 1px 0 rgba(255,255,255,0.1);
+  }
 }
 
 @layer utilities {
